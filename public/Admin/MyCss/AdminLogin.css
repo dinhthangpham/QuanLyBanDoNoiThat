@@ -1,0 +1,105 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-size:20px;
+}
+body {  
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: Optima, Segoe, "Segoe UI", Candara, Calibri, Arial, sans-serif;
+    background-image: url('https://cdn.hinhnen4k.net/uploads/2021/12/interior_graphic_living_room_furniture_80267_3840x2160.jpg');
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.container_admin{
+    margin: 200px auto;
+    background-color:white;
+    position: relative;
+    width:400px;
+    height: auto;
+    padding:30px;
+    box-shadow: 0 0 5px #333;
+}
+
+.form_control{
+    position: relative;
+    margin-bottom: 15px;
+}
+.title{
+    margin-bottom: 20px;
+    font-size:1.5em;
+}
+.input_form{
+    width: 100%;
+    padding:10px;
+    outline: none;
+    border: none;
+    background-color:#EEEEEE;
+    display: block;
+
+    
+}
+
+/* .input_form:focus ~ .input_label,
+/*, .input_form:not(:placeholder-shown).input_form:not(:focus) ~ .input_label{ */
+    /* {
+    top:-0.8rem;
+    left:0.3rem;
+    font-size:0.5rem;
+    background-color:#000000;
+    color:#FFFF;
+    padding:4px;
+    border: none;
+    border-radius: 4px;
+    transition:all 0.5s ease-out; */
+/* } */ */
+
+
+/* .input_label{
+ 
+    position:absolute;
+    top:0.2rem;
+    left:0.5rem;
+    font-size:0.8rem;
+    color:	#777777;
+    
+} */
+
+.margin_15px{
+    margin-bottom: 15px;
+}
+.container_admin-checked{
+    font-size:0.7rem;
+}
+.container_admin-checked input{
+    padding: 5px;
+}
+button{
+    margin-top:10px;
+    margin-bottom:10px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height:40px;
+    background: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+.register,
+.register a{
+    font-size:0.6rem;
+}
+.register a{
+    color: red;
+    text-decoration:none;
+}
+.register{
+    
+    float: right;
+}

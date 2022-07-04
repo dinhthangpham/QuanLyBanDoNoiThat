@@ -1,0 +1,5 @@
+Users v
+Product: id,idCategory, name, price, image , time, desc.
+category: id, name, image, desc.
+blog: id, title, content,time,active.
+cart: id, idProduct,amount.
