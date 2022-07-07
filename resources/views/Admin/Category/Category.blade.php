@@ -129,7 +129,7 @@
             }
         });
     }
-
+   
     function changeFileToImage(idFile, idImage) {
         document.getElementById(idFile).onchange = function() {
             if (this.files && this.files[0]) {

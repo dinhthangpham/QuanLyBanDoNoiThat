@@ -12,7 +12,6 @@ class Product extends Model
         'name',
         'category_id',
         'avatar',
-        'desc',
-        'user_change'
+        'desc'
     ];
 }

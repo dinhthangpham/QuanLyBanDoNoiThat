@@ -28,7 +28,7 @@ class ProductRequest extends FormRequest
             'category_product'=>'required',
             'img_product'=>'required',
             'category_product'=>'required',
-            'desc_product'=>'required'     
+                
         ];
     }
     public function messages(){
@@ -36,7 +36,7 @@ class ProductRequest extends FormRequest
             'name_product.required'=>'Name product is required',
             'category_product.required'=>'Category for product is required',
             'img_product.required'=>'Image for product is required',
-            'desc_product.required'=>'Description product is required',
+           
             'category_product.required'=>'Category is required',
         ];
     }

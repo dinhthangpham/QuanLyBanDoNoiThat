@@ -172,7 +172,7 @@ function createNewProduct(){
                    numberError++;
                    let responeDetail = $.parseJSON(reject.responseText);
                    $.each(responeDetail.errors, function(key, val) {                   
-                        $('#' +key+'-error-'+numberError).text(val[0]);
+                        $('#' +key+'-error-'+(i+1)).text(val[0]);
                         $('#state_product').val('insertProductDetail');
                    });
                }

@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AdminLTE 3 | General Form Elements</title>
   @include('Common.Admin.css')
-  
+  @include('Common.Admin.js')
  
     @yield('css')
  
@@ -237,6 +237,22 @@
             </a>       
           </li>
           <li class="nav-item">
+            <a href="{{ route('admin.product.index') }}" class="nav-link">   
+              <i class="fa-solid fa-couch"></i>
+              <p>
+                Slider
+              </p>
+            </a>       
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('admin.product.index') }}" class="nav-link">   
+              <i class="fa-solid fa-couch"></i>
+              <p>
+                Bill
+              </p>
+            </a>       
+          </li>
+          <li class="nav-item">
             <a href="{{ route('admin.logout') }}" class="nav-link">   
               <i class="fa-solid fa-person-running"></i>
               <p>
@@ -270,7 +286,7 @@
 </div>
 <!-- ./wrapper -->
 
-@include('Common.Admin.js')
+
 
 </body>
 </html>

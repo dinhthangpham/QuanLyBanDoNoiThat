@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('avatar');
             $table->text('desc');
             $table->timestamps();
-            $table->string('user_change');
+        
         });
     }
 

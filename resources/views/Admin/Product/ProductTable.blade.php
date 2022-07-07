@@ -1,7 +1,7 @@
 <table id="product" class="table">
     <thead class="table-success">
         <tr>
-            <th >ID</th>
+            <th >STT</th>
                 <th>Name</th>
                 <th>Category</th>
                 <th>Avatar</th>
@@ -14,7 +14,7 @@
             </thead>      
             <tbody id="listProduct">
                 @foreach ($products as $product)
-        <tr class='line-product-{{ $loop->index }}'>
+        <tr class='line-product' >
             <td class="product_table-id" name='product_table-id'>{{ $product->id }} </td>
             <td clas="product_table-name" name="product_table-name">{{ $product->name }}</td>
             <td clas="product_table-categoryName" name="product_table-categoryName">{{ $product->categoryName }}</td>
@@ -29,8 +29,8 @@
             <td>
                 <input type="hidden" class="idCate" name="idCate" value="{{ $product->id }}" </td>
             <td>
-                <button class="btn btn-warning btn_product-update" onclick="updateCategory({{ $product->id }},{{ $loop->index }})" name="btn_product-update">Update</button>
-                <button class="btn btn-danger btn_product-delete" onclick="deleteCategory({{ $product->id }},{{ $loop->index }})" name="btn_product-delete">Delete</button>
+                <button class="btn btn-warning btn_product-update" idUpdate={{ $product->id }} onclick="openDialogUpdate({{ $product->id }})" name="btn_product-update">Update</button>
+                <button class="btn btn-danger btn_product-delete" idDelete={{ $product->id }} name="btn_product-delete">Delete</button>
             </td>
         </tr>
     
@@ -38,3 +38,4 @@
         </tbody>
 </table>
 {!! $products->links() !!}
+

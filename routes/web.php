@@ -44,8 +44,13 @@ Route::prefix('Admin')->group(function () {
         Route::prefix('Product')->group(function(){
             Route::get("/",[ProductController::class,'index'])->name('admin.product.index');
             Route::get('/GetData',[ProductController::class,'getData'])->name('admin.product.getData');
+            Route::get('/Show/{id}',[ProductController::class,'show'])->name('admin.product.show');
             Route::post('/Store',[ProductController::class,'store'])->name('admin.product.store');
             Route::post('/StoreDetail',[ProductController::class,'storeDetail'])->name('admin.product.storeDetail');
+            Route::post('/Update',[ProductController::class,'update'])->name('admin.product.update');
+            Route::post('/UpdateDetail',[ProductController::class,'updateDetail'])->name('admin.product.updateDetail');
+            Route::post('/DeleteDetail',[ProductController::class,'deleteDetail'])->name('admin.product.deleteDetail');
+            Route::post('/DeleteProduct/{id}',[ProductController::class,'destroy'])->name('admin.product.deleteProduct');
         });
         
     });

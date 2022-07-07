@@ -12,9 +12,7 @@ use Illuminate\Support\Facades\Cookie;
 class CategoryController extends Controller
 {
   
-    public function getUser(){
-      return Cookie::get('user');
-    }
+
     //
     public function index(){
         $list= Category::orderBy('id', 'desc')->paginate(5);
@@ -97,7 +95,7 @@ class CategoryController extends Controller
           'name'=>$name_category,
           'image'=>'/Uploads/'.$file_name,
           'desc'=>$desc,
-          'user_change'=>self::getUser()
+   
       ]);
       if($category){
         $contributeCategory=[
@@ -111,7 +109,7 @@ class CategoryController extends Controller
       $category=Category::where('id','=',$id)->update([
         'name'=>$request->name_category,
         'desc'=>$desc,
-        'user_change'=>self::getUser()
+       
     ]);
   
     if($category){
@@ -142,7 +140,7 @@ class CategoryController extends Controller
           'name'=>$request->name_category,
           'image'=>'/Uploads/'.$file_name,
           'desc'=>$desc,
-          'user_change'=>self::getUser()
+        
         ]);
       
      

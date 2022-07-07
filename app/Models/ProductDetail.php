@@ -14,7 +14,6 @@ class ProductDetail extends Model
         'color_id',
         'original_cost',
         'discount',
-        'amount',
-        'user_change'
+        'amount'
     ];
 }

@@ -22,7 +22,7 @@ class CreateProductDetailsTable extends Migration
             $table->double('discount');
             $table->integer('amount');           
             $table->timestamps();
-            $table->string('user_change');
+            
         });
     }
 
