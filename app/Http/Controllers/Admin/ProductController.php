@@ -77,7 +77,7 @@ class ProductController extends Controller
         if(!empty($fileName)){
             $fileName='/Uploads/'.$fileName;
         }
-        ProductDetail::create([
+        $productDetail=ProductDetail::create([
             'product_id'=>$request->id_product,
             'image'=>$fileName,
             'color_id'=>$request->colorProduct,
@@ -86,6 +86,7 @@ class ProductController extends Controller
             'amount'=>$request->amout_product,
          
         ]);
+        return dd($request->all());
        
     }
     public function getData(Request $request){
@@ -215,7 +216,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        ProductDetail::where('product_id','=',$id)->delete();
-        Product::where('id','=',$id)->delete();
+        $state=false;
+        $productDetail=ProductDetail::where('product_id','=',$id)->delete();
+        $product=Product::where('id','=',$id)->delete();
+        if($productDetail==true && $product==true){
+            $state=true;
+        }
+        return response()->json($state);
+       
     }
 }

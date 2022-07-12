@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\LogoutController;
+use App\Http\Controllers\Admin\SliderController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -51,6 +52,14 @@ Route::prefix('Admin')->group(function () {
             Route::post('/UpdateDetail',[ProductController::class,'updateDetail'])->name('admin.product.updateDetail');
             Route::post('/DeleteDetail',[ProductController::class,'deleteDetail'])->name('admin.product.deleteDetail');
             Route::post('/DeleteProduct/{id}',[ProductController::class,'destroy'])->name('admin.product.deleteProduct');
+        });
+        Route::prefix('Slider')->group(function(){
+            Route::get('/',[SliderController::class,'index'])->name('admin.slider.index');
+            Route::post('/Insert',[SliderController::class,'insert'])->name('admin.slider.insert');
+            Route::post('/Update',[SliderController::class,'update'])->name('admin.slider.update');
+            Route::post('/Delete',[SliderController::class,'delete'])->name('admin.slider.delete');
+            Route::get('/GetData',[SliderController::class,'getData'])->name('admin.slider.getData');
+            Route::get('/Get',[SliderController::class,'get'])->name('admin.slider.get');
         });
         
     });

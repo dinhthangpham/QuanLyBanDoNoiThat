@@ -237,16 +237,16 @@
             </a>       
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.product.index') }}" class="nav-link">   
-              <i class="fa-solid fa-couch"></i>
+            <a href="{{ route('admin.slider.index') }}" class="nav-link">   
+              <i class="fa-solid fa-image"></i>
               <p>
                 Slider
               </p>
             </a>       
           </li>
           <li class="nav-item">
-            <a href="{{ route('admin.product.index') }}" class="nav-link">   
-              <i class="fa-solid fa-couch"></i>
+            <a href="#" class="nav-link">   
+              <i class="fa-solid fa-file-invoice"></i>
               <p>
                 Bill
               </p>

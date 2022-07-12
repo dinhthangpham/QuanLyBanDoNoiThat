@@ -45,6 +45,9 @@ function resetAllForm(){
     CKEDITOR.instances['desc_product'].setData("");
     step=1;
     $('#alertSuccess').html('');
+    $('#original_cost_product-1').val("0");
+    $('#discount_product-1').val("0");
+    $('#amout_product-1').val("0");
 }
 
 function changeFileToImage(idFile, idImage) {
@@ -117,7 +120,7 @@ function createNewProduct(){
                     contentType: false,
                     processData: false,
                     success: function (data){
-                       
+                       console.log(data);
                     }
                 });
             };
@@ -125,7 +128,6 @@ function createNewProduct(){
             
         }).then(function(data){
                 closeModal();
-                resetAllForm();
                 let page=$('#page_product').val();
                 var product_search = $('#product_search').val();
                 getDataProduct(page, product_search);
@@ -214,24 +216,7 @@ function updateDeleteDetail(){
         });
     }
 }
-function deleteProduct(){ 
-    $('#product').on('click', '.btn_product-delete', function(e){ //Once remove button is clicked
-        e.preventDefault();
-        let id= $(e.target).attr('idDelete');
-       $.ajax({
-        type: 'POST',
-        url: '/Admin/Product/DeleteDetail/id='+id,
-        dataType: 'json',
-        contentType: false,
-        processData: false,
-        success: function (data){
-            let page=$('#page_product').val();
-            var product_search = $('#product_search').val();
-            getDataProduct(page, product_search);
-        }
-    })
-    });  
-}
+
 function checkValueNull(idInputCheck,idTextError, textError, stepError){
     let value=$(idInputCheck).val();
     if(value==''){
@@ -256,6 +241,19 @@ function checkValueNullCkeditor(ckediterName,idTextError, textError, stepError){
         return true;
     }
 }
+function checkValueNumberProduct(idOriginalCost,idDiscount,idError,textError){
+    let originalCost=$(idOriginalCost).val();
+    let discount=$(idDiscount).val();
+    if(originalCost<discount){       
+        $(idError).text(textError);
+        step=3;
+        stepDialog(step);
+        return false;
+    }
+    $(idError).text('');
+    return true;
+    
+}
 function saveProduct(){
         $('#saveProduct').on('click', function(e) {
             e.preventDefault();
@@ -273,12 +271,13 @@ function saveProduct(){
             let arrayCheckErrorDetail=[];
             let checkColorProductDetail=true;
             let checkImageProductDetail=true;
+            let checkNumber=true;
             for (var i = 0; i <$('.div_product_detail').length;i++) {
-                
                  checkColorProductDetail=checkValueNull('#colorProduct-'+(i+1),'#colorProduct-error-'+(i+1),'Color must be choose',3);
+                 checkNumber=checkValueNumberProduct('#original_cost_product-'+(i+1),'#discount_product-'+(i+1),'#number-error-'+(i+1),'Orginal Cost must be bigger than Discount');
                  if(status=='insert')
                  checkImageProductDetail=checkValueNull('#image_detail_id_'+(i+1),'#image_detail-error-'+(i+1),'Image must be choose',3);
-                if(!checkColorProductDetail || !checkImageProductDetail){
+                if(!checkColorProductDetail || !checkImageProductDetail || !checkNumber){
                     arrayCheckErrorDetail.push('error');
                 }
             }

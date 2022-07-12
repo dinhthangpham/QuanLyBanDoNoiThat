@@ -41,7 +41,8 @@
                 </div>
                 <small id="img_category-error" class="text-danger"></small>
 
-                <img style="width: 100px; margin-top:10px;" src="/Admin/Image/no-image.jpg" id="img-category-demo" alt="">
+                <img style="width: 100px; margin-top:10px;" src="/Admin/Image/no-image.jpg" id="img-category-demo"
+                    alt="">
                 <br>
                 <label for="usr">Description category</label>
                 <textarea name="desc_category" id="desc_category" class="form-control" cols="30" rows="10"></textarea>
@@ -55,8 +56,6 @@
     <input type="hidden" name="" id="state_category">
     <input type="hidden" name="" id="page_category" value="1">
 </div>
-
-
 
 <script>
     $(document).ready(function() {
@@ -129,7 +128,7 @@
             }
         });
     }
-   
+
     function changeFileToImage(idFile, idImage) {
         document.getElementById(idFile).onchange = function() {
             if (this.files && this.files[0]) {
@@ -180,7 +179,7 @@
                     success: function(data) {
                         closeModal();
                         $('#form_category')[0].reset();
-                         $('#img-category').attr('src','/Admin/Image/no-image.jpg');
+                        $('#img-category').attr('src', '/Admin/Image/no-image.jpg');
                         $('#alertSuccess').html(
                             '<div class="alert alert-success">' +
                             '<strong>Success!</strong> Update Category Successfull' +
@@ -197,7 +196,7 @@
                     }
                 });
             } else if ($('#state_category').val() == "insert") {
-              
+
                 if ($('#exits_category').val() == "false") {
                     $.ajax({
                         type: "POST",
@@ -212,10 +211,10 @@
                                 '<div class="alert alert-success">' +
                                 '<strong>Success!</strong> Create a new Category' +
                                 '</div> <br>');
-                                $('#form_category')[0].reset();
-                                $('#img-category').attr('src','/Admin/Image/no-image.jpg');
+                            $('#form_category')[0].reset();
+                            $('#img-category').attr('src', '/Admin/Image/no-image.jpg');
                             let html = '<tr><td>' + data.id + '</td>+<td>' + data.name +
-                            '</td><td>';
+                                '</td><td>';
                             html +=
                                 '<img style="width: 100px;height: 100px; background-size=cover;" src=" ' +
                                 data.image + ' " alt=""></td>';
